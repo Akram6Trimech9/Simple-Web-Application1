@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build') {
        steps {
-         sh 'docker build -t simple-web-application .'
+         sh 'docker build .  -t simple-web-application .'
        }
     }
     stage('Building image') {
