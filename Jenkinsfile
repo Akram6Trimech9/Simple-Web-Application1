@@ -13,21 +13,20 @@ pipeline {
     }
     stage('Build') {
        steps {
-         sh 'docker build -t simple-web-application .'
+         sh 'echo build '
        }
     }
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
+          echo "Buildding"
+         }
       }
     }
     stage('Deploy Image') {
       steps{
          script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+          echo "deploy"
           }
         }
       }
